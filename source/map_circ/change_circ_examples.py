@@ -41,7 +41,7 @@ def active_tunnels_banch() -> [Element]:
 
 
 def add_many_registers(main_circuit,
-	start_coords: (int, int), rows: int, columns: int,
+	start_coords: (int, int), delta: (int, int), rows: int, columns: int,
 	register_font='Sawasdee plain 12'):
 	base_x = start_coords[0]
 	base_y = start_coords[1]
@@ -61,19 +61,30 @@ def add_many_registers(main_circuit,
 	}
 	register = Element(tag, attrib, sub_elements)
 
-	attrib = {'lib': '0', 'name': 'Tunnel',
+
+	attrib = {'lib': '0', 'name': 'Pin',
 		'loc': f'({base_x},{base_y})'
 	}
 	sub_elements = {
-		'width': '32',
 		'facing': 'west',
-		'label': 'from_reg',
-	}
-	tunnel_from = Element(tag, attrib, sub_elements)
+		'width': '32',
+		'output': 'true',
+		'tristate': 'false',
 
-	attrib['loc'] = f'({base_x - 30},{base_y})'
-	sub_elements['label'] = 'to_reg'
-	sub_elements['facing'] = 'east'
+		'labelloc': 'north',
+		'label': 'out_reg',
+		'labelfont': "Sawasdee plain 12",
+	}
+	pin_out = Element('comp', attrib, sub_elements)
+
+	attrib = {'lib': '0', 'name': 'Tunnel',
+		'loc': f'({base_x - 30},{base_y})'
+	}
+	sub_elements = {
+		'width': '32',
+		'facing': 'east',
+		'label': 'to_reg',
+	}
 	tunnel_to = Element(tag, attrib, sub_elements)
 
 	attrib['loc'] = f'({base_x - 20},{base_y+20})'
@@ -83,26 +94,13 @@ def add_many_registers(main_circuit,
 	tunnel_active = Element(tag, attrib, sub_elements)
 	
 	parent_elems = [register,
-		tunnel_from,
+		pin_out,
 		tunnel_to,
 		tunnel_active
 	]
 	
 	mult_elems(main_circuit, parent_elems,
-		start_coords, rows, columns)
-
-def straight_elem(main_circuit,
-	elem: Element, vect="horizontally", vect_len=10
-):
-	if vect == "vertically":
-		delta = (vect_len, 0)
-		ro_co = (1, 32)
-	else:
-		delta = (0, vect_len)
-		ro_co = (32, 1)
-
-	mult_elems(main_circuit, elem,
-		delta, ro_co[0], ro_co[1])
+		delta, rows, columns)
 
 	
 #TODO:

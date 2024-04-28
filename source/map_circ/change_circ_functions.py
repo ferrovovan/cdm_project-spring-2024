@@ -33,6 +33,7 @@ class Element:
 		return new_element
 
 
+
 def mult_elems(main_circuit, parents,
 		delta_coords: (int, int),
 		rows: int, columns: int
@@ -48,13 +49,44 @@ def mult_elems(main_circuit, parents,
 		main_circuit.append(ET.Comment('\n\n'))
 		main_circuit.append(xml_element)
 
-	
 	for row in range(rows):
 		for column in range(columns):
 			elem_num = column * rows + row + 1
 
 			for parent in parents:
 				add_elem(parent, elem_num)
+
+
+def mult_elem(main_circuit, elem: Element,
+		delta_coords: (int, int),
+		rows: int, columns: int
+	):
+	for row in range(rows):
+		for column in range(columns):
+			elem_num = column * rows + row + 1
+
+			prefix = elem.sub_elements['label']
+			xml_element = elem.build(
+				(delta_coords[0] * column,
+				delta_coords[1] * row),
+				f"{prefix}{elem_num}"
+			)
+			main_circuit.append(ET.Comment('\n\n'))
+			main_circuit.append(xml_element)
+
+
+def straight_elem(main_circuit,
+	elem: Element, vect="horizontally", vect_len=10
+):
+	if vect == "vertically":
+		delta = (vect_len, 0)
+		ro_co = (1, 32)
+	else:
+		delta = (0, vect_len)
+		ro_co = (32, 1)
+
+	mult_elem(main_circuit, elem, delta, ro_co[0], ro_co[1])
+
 
 
 def diagonal_elems(main_circuit, parent: Element,

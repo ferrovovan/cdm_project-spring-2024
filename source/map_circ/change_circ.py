@@ -1,5 +1,5 @@
 from change_circ_functions import *
-from change_circ_examples import add_many_registers, straight_elem
+from change_circ_examples import add_many_registers
 			
 
 
@@ -19,9 +19,8 @@ if __name__ == "__main__":
 	main_circuit = root.find(".//circuit[@name='main']")
 
 
-	add_many_registers(main_circuit, (1600, 80), 8, 4 )
+	add_many_registers(main_circuit, (1700, 80), (200, 140), 4, 8 )
 	"""
-	tag = 'comp'
 	attrib = {'lib': '0', 'name': 'Tunnel',
 		'loc': '(1600,400)'
 	}
@@ -30,7 +29,7 @@ if __name__ == "__main__":
 		'facing': 'west', #'north',
 		'label': 'to_reg',
 	}
-	tunnel_to = Element(tag, attrib, sub_elements)
+	tunnel_to = Element('comp', attrib, sub_elements)
 	
 	#straight_elem(main_circuit, tunnel_to, vect="horizontally", vect_len=10)
 	#straight_elem(main_circuit, tunnel_to, vect="vertically", vect_len=10)
