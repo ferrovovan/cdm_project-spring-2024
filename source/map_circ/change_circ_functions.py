@@ -76,14 +76,14 @@ def mult_elem(main_circuit, elem: Element,
 
 
 def straight_elem(main_circuit,
-	elem: Element, vect="horizontally", vect_len=10
+	elem: Element, vect="horizontally", vect_len=10, quantity=32
 ):
 	if vect == "vertically":
-		delta = (vect_len, 0)
-		ro_co = (1, 32)
-	else:
 		delta = (0, vect_len)
-		ro_co = (32, 1)
+		ro_co = (quantity, 1)
+	else:
+		delta = (vect_len, 0)
+		ro_co = (1, quantity)
 
 	mult_elem(main_circuit, elem, delta, ro_co[0], ro_co[1])
 
