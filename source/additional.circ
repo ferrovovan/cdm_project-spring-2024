@@ -23,7 +23,7 @@
       <a name="radix" val="16"/>
     </tool>
     <tool name="Tunnel">
-      <a name="label" val="En"/>
+      <a name="label" val="Permissive entry"/>
       <a name="labelfont" val="SansSerif plain 9"/>
     </tool>
     <tool name="Pull Resistor">
@@ -251,7 +251,7 @@
 </a>
     </comp>
     <comp lib="0" loc="(490,220)" name="Tunnel">
-      <a name="label" val="En"/>
+      <a name="label" val="Permissive entry"/>
       <a name="labelfont" val="SansSerif plain 9"/>
     </comp>
     <comp lib="0" loc="(480,490)" name="Tunnel">
@@ -317,7 +317,7 @@
       <a name="label" val="power_map_4"/>
     </comp>
     <comp lib="0" loc="(600,460)" name="Tunnel">
-      <a name="label" val="En"/>
+      <a name="label" val="Permissive entry"/>
       <a name="labelfont" val="SansSerif plain 9"/>
     </comp>
     <comp lib="0" loc="(100,330)" name="Pin">
@@ -335,7 +335,7 @@
     </comp>
     <comp lib="0" loc="(240,50)" name="Tunnel">
       <a name="facing" val="south"/>
-      <a name="label" val="En"/>
+      <a name="label" val="Permissive entry"/>
       <a name="labelfont" val="SansSerif plain 9"/>
     </comp>
     <comp lib="4" loc="(280,370)" name="ROM">
@@ -360,12 +360,12 @@
     </comp>
     <comp lib="0" loc="(40,440)" name="Tunnel">
       <a name="facing" val="north"/>
-      <a name="label" val="En"/>
+      <a name="label" val="Permissive entry"/>
       <a name="labelfont" val="SansSerif plain 9"/>
     </comp>
     <comp lib="0" loc="(480,220)" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="En"/>
+      <a name="label" val="Permissive entry"/>
       <a name="labelloc" val="north"/>
     </comp>
     <comp lib="0" loc="(190,410)" name="Tunnel">
