@@ -1,7 +1,15 @@
-# Учебный проект на Logisin и CDM-8 mark 5   "Змейка".
+# Учебный проект на Logisim и CDM-8 mark 5   "Змейка".  
 ![LOGO](https://github.com/ferrovovan/cdm_project/blob/main/Preview.png)
-1. Процедурная генерация элементов схемы.
-2. [Процессоры от Иртегова](https://github.com/dmitry-irtegov/cdm-devkit)
-3. [Образец](https://github.com/JooudDoo/Logisim-Snake)
-4. Создать ssh-ключ:
-  ssh-keygen -t rsa -b 4096 -C "комментарий"
+
+#### Клонирование репозитория:  
+```
+git clone --depth 1  git@github.com:ferrovovan/cdm_project.git
+cd cdm_project
+```
+  
+В архиве *mult_elems_py_scripts.zip* хранятся py-скрипты для процедурной генерации элементов схемы.  
+  
+#### Смежные репозитории:  
+- [Процессоры от Иртегова](https://github.com/dmitry-irtegov/cdm-devkit)
+- [Образец](https://github.com/JooudDoo/Logisim-Snake)
+
